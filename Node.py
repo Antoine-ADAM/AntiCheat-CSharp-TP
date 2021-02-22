@@ -17,7 +17,13 @@ class Node():
         tb=""
         pa=0
         blocks=[]
+        antiVar=False
         for c in text:
+            if antiVar:
+                if c in " ;":
+                    continue
+                else:
+                    antiVar=False
             if c == '{':
                 if pa !=0:
                     tb+=c
@@ -31,6 +37,7 @@ class Node():
                         blocks.append((th,tb))
                     th=""
                     tb=""
+                    antiVar=True
                 else:
                     tb+=c
             elif pa==0:

@@ -10,7 +10,8 @@ class Parsing():
         cot=False
         dCot=False
         antiCote=False
-        self.text+="  "
+        self.text+=" "
+        lastStrict=''
         for i in range(len(self.text)):
             c=self.text[i]
             if c == '\\':
@@ -34,7 +35,7 @@ class Parsing():
                 sl = False
                 c=' '
             elif c == '/':
-                if com and last=='*':
+                if com and lastStrict=='*':
                     com=False
                 elif not sl and not com:
                     if not cot and not dCot:
@@ -63,6 +64,7 @@ class Parsing():
             else:
                 c=' '
             last=c
+            lastStrict=self.text[i]
         self.text=res
 
     def getImportAndRemove(self):

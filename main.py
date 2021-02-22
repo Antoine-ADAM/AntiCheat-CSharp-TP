@@ -1,4 +1,4 @@
 import AnalyseFile
 
 if __name__ == '__main__':
-    AnalyseFile.AnalyseFile.analyseAuto("configTest.json","resultTest.json")
+    AnalyseFile.AnalyseFile.analyseAuto("tests/configTest.json","tests/resultTest.json")
